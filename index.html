@@ -3,160 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pine Tree Analytics — Joe, BI Analyst</title>
+  <title>Pine Tree Analytics | Portland Reputation Intelligence</title>
+  <meta
+    name="description"
+    content="Pine Tree Analytics helps independent Portland restaurants turn guest reviews into better first impressions, clearer decisions, and practical monthly reputation intelligence."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <span class="nav-logo">Pine Tree <em>Analytics</em></span>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Business Intelligence Analyst</p>
-      <h1 class="hero-name">Joe<br /><em>Carignan</em></h1>
-      <p class="hero-sub">
-        I turn messy data into clear decisions —<br />
-        through BI infrastructure, reporting systems,<br />
-        and analytical storytelling. Currently open <br />
-        to BI Analyst and Analytics Engineer roles.
-      </p>
-      <a href="#projects" class="btn-primary">See my work</a>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="chart-bars">
-        <div class="bar" style="--h: 40%; --delay: 0s;"></div>
-        <div class="bar" style="--h: 65%; --delay: 0.1s;"></div>
-        <div class="bar" style="--h: 50%; --delay: 0.2s;"></div>
-        <div class="bar" style="--h: 80%; --delay: 0.3s;"></div>
-        <div class="bar" style="--h: 55%; --delay: 0.4s;"></div>
-        <div class="bar" style="--h: 90%; --delay: 0.5s;"></div>
-        <div class="bar" style="--h: 70%; --delay: 0.6s;"></div>
-        <div class="bar" style="--h: 95%; --delay: 0.7s;"></div>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">PT</span>
+        <span>
+          Pine Tree Analytics
+          <small>Portland, Maine</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
+        <a href="/guestsignal/">GuestSignal</a>
+        <a href="#how">How it works</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+        <a class="button button-small" href="mailto:jcarignan@pinetreeanalytics.com?subject=Review%20Rescue%20Audit">Request an audit</a>
       </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-inner">
-      <div class="section-label">About</div>
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>Hi, I'm Joe.</h2>
-          <p>I'm a Business Intelligence Analyst with a passion for transforming complex data into actionable insights. With experience in BI infrastructure, reporting automation, and data storytelling, I help organizations make informed decisions through clear and compelling analytics solutions.</p>
-          <p>My expertise spans the Microsoft BI stack, including Power BI, Dataflows, and Power Automate, as well as SQL and R for data analysis. I thrive on optimizing data models, automating reporting processes, and uncovering patterns in data to drive business value.</p>
+  <main>
+    <section class="hero hero-home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Portland reputation intelligence</p>
+        <h1>Helping local restaurants turn guest reviews into clearer decisions.</h1>
+        <p class="lead">
+          Pine Tree Analytics is a Portland, Maine analytics business built for independent restaurants, bars, and hospitality operators who need their public reputation handled with care.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="mailto:jcarignan@pinetreeanalytics.com?subject=Review%20Rescue%20Audit">Request a Review Rescue Audit</a>
+          <a class="button button-secondary" href="/guestsignal/">Explore GuestSignal</a>
         </div>
-        <div class="about-skills">
-          <h3>Tools &amp; Technologies</h3>
-          <ul class="skill-list">
-            <li>Microsoft Fabric</li>
-            <li>Power BI &amp; DAX</li>
-            <li>Power Automate</li>
-            <li>SQL</li>
-            <li>R / RStudio</li>
-            <li>Tabular Editor</li>
-            <li>VertiPAQ Analyzer</li>
-            <li>Dataflows Gen1</li>
-            <li>Paginated Reporting (Report Builder)</li>
+        <p class="microcopy">AI-assisted. Analyst-led. Owner-approved.</p>
+      </div>
+
+      <div class="report-shell reveal" aria-label="Sample reputation report preview">
+        <div class="report-topline">
+          <span>Monthly Reputation Signal</span>
+          <strong>Portland bistro sample</strong>
+        </div>
+        <div class="report-headline">
+          Guests love the hospitality. Friday drink waits are starting to show up.
+        </div>
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>42</strong>
+            <span>reviews</span>
+          </div>
+          <div class="metric">
+            <strong>4.6</strong>
+            <span>avg rating</span>
+          </div>
+          <div class="metric">
+            <strong>11</strong>
+            <span>staff mentions</span>
+          </div>
+        </div>
+        <div class="signal-chart" aria-hidden="true">
+          <svg viewBox="0 0 520 180" preserveAspectRatio="none">
+            <path class="chart-fill" d="M0 132 L52 120 L104 126 L156 98 L208 88 L260 102 L312 72 L364 62 L416 78 L468 44 L520 54 L520 180 L0 180 Z"></path>
+            <polyline points="0,132 52,120 104,126 156,98 208,88 260,102 312,72 364,62 416,78 468,44 520,54"></polyline>
+            <circle cx="468" cy="44" r="8"></circle>
+          </svg>
+        </div>
+        <div class="insight-box">
+          <span>Recommended action</span>
+          Add a bar-dedicated service check during Friday pre-theater seating.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span></span> What Pine Tree Analytics does</p>
+        <h2>Reputation work for owners who do not have time to babysit reviews.</h2>
+        <p>
+          Reviews shape search results, guest confidence, and the stories people repeat about a place. Pine Tree Analytics turns that public feedback into a practical reputation system.
+        </p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="icon-badge">01</div>
+          <h3>Keep the public presence active</h3>
+          <p>New reviews get thoughtful draft responses in your voice, with escalation judgment for anything risky.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon-badge">02</div>
+          <h3>Find the operating signal</h3>
+          <p>Monthly reporting separates isolated complaints from patterns worth fixing, watching, or celebrating.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon-badge">03</div>
+          <h3>Make the next step obvious</h3>
+          <p>Each report ends with one concrete action tied directly to what guests are saying in public.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="how">
+      <div class="section workflow">
+        <div class="reveal">
+          <p class="eyebrow eyebrow-on-dark"><span></span> How it works</p>
+          <h2>A managed reputation loop, not another dashboard.</h2>
+          <p>
+            GuestSignal is the flagship Pine Tree Analytics service: local, analyst-led reputation management for independent restaurants and hospitality businesses.
+          </p>
+          <a class="text-link" href="/guestsignal/">See the GuestSignal service</a>
+        </div>
+        <div class="step-list">
+          <article class="step-card reveal">
+            <span>1</span>
+            <div>
+              <h3>Voice and escalation rules</h3>
+              <p>Onboarding captures tone, sensitivities, approval preferences, and what should never be auto-handled.</p>
+            </div>
+          </article>
+          <article class="step-card reveal">
+            <span>2</span>
+            <div>
+              <h3>Review response drafts</h3>
+              <p>Reviews are monitored, drafted, and sent for approval so your public presence does not look neglected.</p>
+            </div>
+          </article>
+          <article class="step-card reveal">
+            <span>3</span>
+            <div>
+              <h3>Monthly reputation intelligence</h3>
+              <p>You get a short report with themes, staff mentions, notable reviews, and one recommended action.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split-section" id="guestsignal">
+      <div class="reveal">
+        <p class="eyebrow"><span></span> Flagship service</p>
+        <h2>GuestSignal keeps restaurant reviews from becoming background noise.</h2>
+        <p>
+          Built for local independents, GuestSignal combines review response management, Google Business Profile checks, competitor context, and monthly reputation reporting.
+        </p>
+        <div class="button-row">
+          <a class="button" href="/guestsignal/">View GuestSignal</a>
+          <a class="button button-secondary" href="mailto:jcarignan@pinetreeanalytics.com?subject=GuestSignal%20Sample%20Report">Request the sample report</a>
+        </div>
+      </div>
+      <div class="review-stack reveal" aria-label="GuestSignal service preview">
+        <article class="review-card">
+          <div class="stars" aria-label="Five star review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <h3>Guest review</h3>
+          <p>"The food was excellent and Maya was fantastic. Only downside was the long wait for drinks before our show."</p>
+        </article>
+        <article class="draft-card">
+          <span>Draft response</span>
+          <p>"Thank you for spending part of your evening with us, and for the kind words about Maya. We hear you on the drink timing before the show, and we are tightening that up on busy theater nights."</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section founder-section" id="founder">
+      <div class="founder-panel reveal">
+        <div>
+          <p class="eyebrow"><span></span> Founder-led</p>
+          <h2>Local context, analytics judgment, and a human in the loop.</h2>
+        </div>
+        <div>
+          <p>
+            Pine Tree Analytics is led by Joe Carignan, a Portland-based analytics operator with a background in BI systems, reporting automation, and analytical storytelling. The goal is simple: make reputation work feel less like software and more like having a careful outside analyst watching the right signals.
+          </p>
+          <ul class="check-list">
+            <li>Built in Portland for independent operators.</li>
+            <li>Designed around practical decisions, not vanity dashboards.</li>
+            <li>Human judgment stays involved when reputation risk is real.</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
-    <div class="projects-inner">
-      <div class="section-label">Projects</div>
-      <h2>Selected Work</h2>
-      <div class="project-grid">
-
-        <div class="project-card">
-          <div class="project-number">01</div>
-          <div class="project-body">
-            <h3>Partner Reporting Automation</h3>
-            <p>Built an end-to-end automated reporting system delivering paginated Power BI reports to global partners across four continents via Power Automate, including SFTP delivery and dynamic date parameterization.</p>
-            <div class="project-tags">
-              <span>Power BI</span>
-              <span>Power Automate</span>
-              <span>DAX</span>
-              <span>SFTP</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-number">02</div>
-          <div class="project-body">
-            <h3>BI Infrastructure Migration</h3>
-            <p>Redesigned the Power BI data architecture by migrating ODBC-sourced tables into a Dataflow Gen1 framework, resolving persistent local memory crash issues in Power BI Desktop and establishing dev/prod workspace separation with deployment pipelines.</p>
-            <div class="project-tags">
-              <span>Power BI</span>
-              <span>Dataflows</span>
-              <span>Architecture</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-number">03</div>
-          <div class="project-body">
-            <h3>Spotify Track Analysis</h3>
-            <p>Analyzed a Spotify tracks dataset using R — covering exploratory data analysis, hypothesis testing (t-tests, proportion z-tests), and regression modeling to surface patterns in audio features and popularity.</p>
-            <div class="project-tags">
-              <span>R</span>
-              <span>Statistics</span>
-              <span>EDA</span>
-              <span>Regression</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-number">04</div>
-          <div class="project-body">
-            <h3>Semantic Model Optimization</h3>
-            <p>Audited and optimized Power BI semantic models using VertiPAQ Analyzer and Tabular Editor, identifying high-cardinality columns with poor compression and implementing structural changes to improve query performance and model size.</p>
-            <div class="project-tags">
-              <span>VertiPAQ</span>
-              <span>Tabular Editor</span>
-              <span>Power BI</span>
-            </div>
-          </div>
-        </div>
-
+    <section class="section final-cta" id="contact">
+      <div class="cta-panel reveal">
+        <p class="eyebrow eyebrow-on-dark"><span></span> Start here</p>
+        <h2>Want to see what your reviews are already telling you?</h2>
+        <p>
+          Send the restaurant name and Pine Tree Analytics will prepare a short Review Rescue Audit: unanswered reviews, visible reputation gaps, top guest themes, and the fastest upside.
+        </p>
+        <a class="button button-light" href="mailto:jcarignan@pinetreeanalytics.com?subject=Review%20Rescue%20Audit">Request a Review Rescue Audit</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="section-label">Contact</div>
-      <h2>Get in touch.</h2>
-      <p>I'm always open to chat about data, analytics infrastructure, or new opportunities.</p>
-      <div class="contact-links">
-        <a href="mailto:jcarignan@pinetreeanalytics.com" class="contact-link">jcarignan@pinetreeanalytics.com</a>
-        <a href="https://linkedin.com/in/joseph-carignan" class="contact-link" target="_blank">LinkedIn</a>
-      </div>
+  <footer class="site-footer">
+    <div>
+      <strong>Pine Tree Analytics</strong>
+      <span>Portland, Maine</span>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Joe Carignan. Built by hand in Maine.</p>
+    <div>
+      <a href="mailto:jcarignan@pinetreeanalytics.com">jcarignan@pinetreeanalytics.com</a>
+      <a href="/guestsignal/">GuestSignal</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

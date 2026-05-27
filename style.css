@@ -409,9 +409,9 @@ h3 {
 .insight-box {
   margin-top: 16px;
   padding: 16px;
-  border-left: 4px solid var(--gold);
+  border: 1px solid rgba(201, 150, 62, 0.45);
   border-radius: 8px;
-  background: var(--cream);
+  background: rgba(201, 150, 62, 0.12);
   color: var(--ink);
   font-weight: 650;
 }
@@ -559,6 +559,125 @@ h3 {
   grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
   gap: 44px;
   align-items: center;
+}
+
+.field-note-section,
+.teardown-section {
+  padding-top: 42px;
+}
+
+.field-note {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 1.12fr);
+  gap: clamp(26px, 5vw, 72px);
+  align-items: end;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(237, 244, 239, 0.92), rgba(255, 253, 248, 0.64)),
+    var(--paper);
+}
+
+.field-note-main {
+  max-width: 560px;
+}
+
+.field-note-main p:not(.eyebrow),
+.teardown-copy p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.note-ledger {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.note-row {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.note-row span {
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.note-row-strong {
+  color: var(--pine);
+  font-weight: 850;
+}
+
+.teardown-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 6vw, 84px);
+  align-items: center;
+}
+
+.teardown-copy {
+  max-width: 520px;
+}
+
+.teardown-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.5fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.teardown-board blockquote {
+  grid-row: span 3;
+  margin: 0;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  box-shadow: var(--shadow);
+}
+
+.annotation {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--mist);
+  color: var(--muted);
+}
+
+.annotation span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--pine);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.annotation-response {
+  background: var(--sage);
+}
+
+.annotation-report {
+  background: var(--paper);
+}
+
+.annotation-watch {
+  border-color: rgba(201, 150, 62, 0.45);
+  background: rgba(201, 150, 62, 0.12);
 }
 
 .review-stack {
@@ -829,7 +948,10 @@ h3 {
   .hero,
   .workflow,
   .split-section,
-  .founder-panel {
+  .founder-panel,
+  .field-note,
+  .teardown-grid,
+  .teardown-board {
     grid-template-columns: 1fr;
   }
 
@@ -929,6 +1051,15 @@ h3 {
 
   .step-card {
     grid-template-columns: 1fr;
+  }
+
+  .note-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .teardown-board blockquote {
+    grid-row: auto;
   }
 
   .founder-panel,

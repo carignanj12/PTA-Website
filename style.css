@@ -885,6 +885,16 @@ h3 {
   letter-spacing: 0;
 }
 
+.tier-focus {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--sage);
+  color: var(--pine);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 .price-card ul {
   margin: 20px 0 0;
   padding-left: 19px;
@@ -894,6 +904,22 @@ h3 {
 
 .price-card li {
   margin: 8px 0;
+}
+
+.pricing-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.pricing-note span {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.72);
 }
 
 .faq {

@@ -1,3 +1,22 @@
+/* ─── Font-fallback metrics (reduces layout shift while web fonts load) ─────── */
+@font-face {
+  font-family: "DM Serif Display Fallback";
+  src: local("Georgia");
+  size-adjust: 110%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "DM Sans Fallback";
+  src: local("Arial");
+  size-adjust: 100%;
+  ascent-override: 94%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -16,8 +35,9 @@
   --muted: #5d6c66;
   --line: #d9e4dd;
   --shadow: 0 24px 70px rgba(22, 33, 30, 0.12);
-  --serif: "DM Serif Display", Georgia, serif;
-  --sans: "DM Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif: "DM Serif Display", "DM Serif Display Fallback", Georgia, serif;
+  --sans: "DM Sans", "DM Sans Fallback", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --hero-split: 58%; /* updated dynamically by JS on the homepage */
 }
 
 html {
@@ -60,6 +80,28 @@ svg {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 18px;
+  border-radius: 0 0 8px 8px;
+  background: var(--pine);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
 }
 
 .site-header {
@@ -125,7 +167,8 @@ svg {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
   color: var(--pine);
 }
 
@@ -179,7 +222,7 @@ svg {
   color: var(--paper);
   background:
     linear-gradient(90deg, rgba(155, 79, 61, 0.2), transparent 30%),
-    linear-gradient(90deg, #102d27 0%, var(--pine) 58%, var(--cream) 58%, var(--cream) 100%);
+    linear-gradient(90deg, #102d27 0%, var(--pine) var(--hero-split), var(--cream) var(--hero-split), var(--cream) 100%);
 }
 
 .hero-service {
@@ -362,7 +405,7 @@ h3 {
 }
 
 .button-light:hover {
-  background: #ffffff;
+  background: var(--paper);
 }
 
 .microcopy {
@@ -495,14 +538,37 @@ h3 {
   stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s;
+}
+
+.report-shell.visible .signal-chart polyline {
+  stroke-dashoffset: 0;
 }
 
 .signal-chart circle {
   fill: var(--gold);
+  opacity: 0;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.25s ease 1.5s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s;
+}
+
+.report-shell.visible .signal-chart circle {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .chart-fill {
   fill: rgba(34, 95, 79, 0.12);
+  opacity: 0;
+  transition: opacity 0.8s ease 0.85s;
+}
+
+.report-shell.visible .chart-fill {
+  opacity: 1;
 }
 
 .insight-box {
@@ -1252,6 +1318,18 @@ h3 {
   }
 
   .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Chart: skip to final state immediately */
+  .signal-chart polyline {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .signal-chart circle,
+  .chart-fill {
     opacity: 1;
     transform: none;
   }

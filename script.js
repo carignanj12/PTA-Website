@@ -1,3 +1,16 @@
+// ─── aria-current="page" ─────────────────────────────────────────────────────
+// Normalise trailing slashes so "/" and "/guestsignal" both match cleanly.
+const currentPath = window.location.pathname.replace(/\/?$/, "/");
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  const href = (link.getAttribute("href") || "").replace(/\/?$/, "/");
+  if (!href || href.startsWith("#")) return;
+  const isCurrent =
+    href === currentPath ||
+    (href !== "/" && currentPath.startsWith(href));
+  if (isCurrent) link.setAttribute("aria-current", "page");
+});
+
+// ─── Mobile navigation ───────────────────────────────────────────────────────
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 
@@ -17,6 +30,25 @@ if (navToggle && navLinks) {
   });
 }
 
+// ─── Hero background split ────────────────────────────────────────────────────
+// The CSS gradient uses --hero-split to divide the dark pine left panel from
+// the cream right panel.  We compute where the hero-copy column actually ends
+// so the split tracks the real layout column boundary rather than a hard-coded
+// viewport percentage.
+function updateHeroSplit() {
+  const heroCopy = document.querySelector(".hero-home .hero-copy");
+  if (!heroCopy) return;
+  const rect = heroCopy.getBoundingClientRect();
+  const pct = ((rect.right / window.innerWidth) * 100).toFixed(2);
+  document.documentElement.style.setProperty("--hero-split", `${pct}%`);
+}
+
+updateHeroSplit();
+window.addEventListener("resize", updateHeroSplit);
+
+// ─── Scroll reveals (staggered siblings) ─────────────────────────────────────
+// Siblings inside the same parent that share the .reveal class stagger in
+// 90 ms apart so grids and step-lists animate as a sequence, not a pop.
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -24,6 +56,11 @@ if ("IntersectionObserver" in window) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          const siblings = [
+            ...entry.target.parentElement.querySelectorAll(".reveal"),
+          ];
+          const index = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${index * 90}ms`;
           entry.target.classList.add("visible");
           revealObserver.unobserve(entry.target);
         }
@@ -32,11 +69,13 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.12 }
   );
 
-  revealElements.forEach((element) => revealObserver.observe(element));
+  revealElements.forEach((el) => revealObserver.observe(el));
 } else {
-  revealElements.forEach((element) => element.classList.add("visible"));
+  // Fallback: show everything immediately if IntersectionObserver is absent.
+  revealElements.forEach((el) => el.classList.add("visible"));
 }
 
+// ─── Active section nav highlighting ─────────────────────────────────────────
 const sections = document.querySelectorAll("section[id]");
 const pageNavLinks = document.querySelectorAll(".nav-links a[href^='#']");
 
